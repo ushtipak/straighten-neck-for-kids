@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.slider.RangeSlider;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         initViews();
     }
 
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "updateRange");
         min = Math.round(slider.getValues().get(0));
         max = Math.round(slider.getValues().get(1));
-        String range = "range [" + min + "-" + max + "]";
+        String range = min + "–" + max;
         tvActiveRange.setText(range);
     }
 
