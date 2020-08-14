@@ -14,7 +14,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive");
-        Toast.makeText(context, "Alarm", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Straighten the neck, kid! :)", Toast.LENGTH_LONG).show();
         player = MediaPlayer.create(context, R.raw.trumpet);
         player.start();
         player.setLooping(false);
