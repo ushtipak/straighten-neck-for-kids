@@ -18,7 +18,5 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
         player = MediaPlayer.create(context, R.raw.trumpet);
         player.start();
         player.setLooping(false);
-//        player.stop();
-//        player.release();
     }
 }

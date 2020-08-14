@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.slider.RangeSlider;
 
@@ -23,14 +22,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvActiveRange;
     private int min;
     private int max;
-    Alarm alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         initViews();
     }
 
@@ -85,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         Log.d(TAG, "onDestroy");
-        stopService(new Intent(MainActivity.this, PlayService.class));
         super.onDestroy();
     }
 

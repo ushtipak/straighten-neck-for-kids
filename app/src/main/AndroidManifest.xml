@@ -20,15 +20,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".PlayService"
-            android:enabled="true" />
-
-        <service
-            android:name=".YourService"
-            android:enabled="true"
-            android:process=":your_service" />
-
         <receiver android:name=".MyBroadcastReceiver" />
 
     </application>
