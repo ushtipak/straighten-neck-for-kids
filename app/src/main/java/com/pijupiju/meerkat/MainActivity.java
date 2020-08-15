@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,7 +56,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void disableReminders() {
         Log.d(TAG, "disableReminders");
-        this.finishAffinity();
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(this, MyBroadcastReceiver.class);
+        for (int i = 0; i < 50; i++) {
+            try {
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(), i, intent, PendingIntent.FLAG_NO_CREATE);
+                Log.d(TAG, "Removing pendingIntent: " + pendingIntent);
+                alarmManager.cancel(pendingIntent);
+            } catch (Exception e) {
+                Log.w(TAG, "pendingIntent not removed " + e.getLocalizedMessage());
+            }
+        }
+        Toast.makeText(this, "Removed all reminders", Toast.LENGTH_LONG).show();
     }
 
     private final RangeSlider.OnSliderTouchListener onSliderTouchListener =
@@ -82,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         Log.d(TAG, "onDestroy");
+        disableReminders();
         super.onDestroy();
     }
 
@@ -107,9 +120,10 @@ public class MainActivity extends AppCompatActivity {
             scheduleTime += 1000 * 60 * randomInterval;
             Log.d(TAG, "scheduled (" + i + "): " + scheduleTime);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                    this.getApplicationContext(), random.nextInt(980), intent, 0);
+                    this.getApplicationContext(), i, intent, 0);
             alarmManager.set(AlarmManager.RTC_WAKEUP, scheduleTime, pendingIntent);
         }
+        Toast.makeText(this, "Set " + reminders + " reminders", Toast.LENGTH_LONG).show();
     }
 
 }
