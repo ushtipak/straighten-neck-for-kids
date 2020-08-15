@@ -92,12 +92,6 @@ public class MainActivity extends AppCompatActivity {
         tvActiveRange.setText(range);
     }
 
-    protected void onDestroy() {
-        Log.d(TAG, "onDestroy");
-        disableReminders();
-        super.onDestroy();
-    }
-
     private void scheduleReminders() {
         Log.d(TAG, "scheduleReminders");
 
