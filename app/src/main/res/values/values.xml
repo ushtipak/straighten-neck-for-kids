@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <array name="initial_slider_values">
-        <item>15</item>
-        <item>45</item>
-    </array>
-</resources>
