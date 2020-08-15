@@ -9,7 +9,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toTopOf="@+id/guide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +18,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/straighten_neck_for_kids"
-            android:scaleType="centerCrop" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/straighten_neck_for_kids_transparent"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/app_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
